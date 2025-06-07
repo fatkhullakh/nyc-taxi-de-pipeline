@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Ignore data files
+/data/*.parquet
+/data/**/*.parquet
+
 # C extensions
 *.so
 
