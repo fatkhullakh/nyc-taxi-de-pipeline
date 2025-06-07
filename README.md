@@ -30,9 +30,22 @@ After cleaning, transforming, and filtering the NYC Taxi data, the final dataset
 | pickup_day_of_week   | Day of the week (e.g. Monday)     |
 | pickup_hour          | Hour of day                       |
 
-### Sample Query:
+## Sample Query:
 ```sql
 SELECT pickup_day_of_week, COUNT(*) 
 FROM nyc_taxi 
 GROUP BY pickup_day_of_week 
 ORDER BY COUNT(*) DESC;
+
+## 🦆 DuckDB Analytics (Local SQL on Parquet)
+
+This project uses [DuckDB](https://duckdb.org/) to query Parquet files directly, simulating cloud warehouse behavior like AWS Athena or BigQuery — but locally.
+
+### 🔎 Key Queries Performed
+
+1. **Top 10 Longest Trips**
+```sql
+SELECT trip_distance, total_amount, passenger_count
+FROM 'data/processed/yellow_tripdata_2021-01-transformed.parquet'
+ORDER BY trip_distance DESC
+LIMIT 10;
