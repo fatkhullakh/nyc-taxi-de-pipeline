@@ -36,6 +36,7 @@ SELECT pickup_day_of_week, COUNT(*)
 FROM nyc_taxi 
 GROUP BY pickup_day_of_week 
 ORDER BY COUNT(*) DESC;
+```
 
 ## 🦆 DuckDB Analytics (Local SQL on Parquet)
 
@@ -49,3 +50,4 @@ SELECT trip_distance, total_amount, passenger_count
 FROM 'data/processed/yellow_tripdata_2021-01-transformed.parquet'
 ORDER BY trip_distance DESC
 LIMIT 10;
+```
