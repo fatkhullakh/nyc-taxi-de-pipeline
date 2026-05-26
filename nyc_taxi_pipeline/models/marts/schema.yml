@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: mart_hourly_trips
+    description: "Trip volume and revenue aggregated by hour and day of week"
+    columns:
+      - name: pickup_hour
+        description: "Hour of day (0-23)"
+        data_tests:
+          - not_null
+
+  - name: mart_revenue_summary
+    description: "Daily revenue and trip summary across all January 2021 trips"
+    columns:
+      - name: trip_date
+        description: "Calendar date"
+        data_tests:
+          - not_null
+          - unique
+
+  - name: mart_top_routes
+    description: "Top 50 most frequent pickup-dropoff location pairs"
+    columns:
+      - name: trip_count
+        description: "Number of trips on this route"
+        data_tests:
+          - not_null
