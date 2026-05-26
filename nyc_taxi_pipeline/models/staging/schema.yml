@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_nyc_taxi
+    description: "Cleaned and standardised NYC yellow taxi trips, January 2021"
+    columns:
+      - name: vendor_id
+        description: "Taxi vendor ID"
+        data_tests:
+          - not_null
+      - name: pickup_at
+        description: "Trip pickup timestamp"
+        data_tests:
+          - not_null
+      - name: trip_distance
+        description: "Trip distance in miles"
+        data_tests:
+          - not_null
+      - name: total_amount
+        description: "Total fare amount in USD"
+        data_tests:
+          - not_null
+      - name: payment_type
+        description: "Payment method used: 1=Credit card, 2=Cash, 3=No charge, 4=Dispute"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4, 5, 6]
